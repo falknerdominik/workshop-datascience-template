@@ -119,6 +119,14 @@ tree -a . -I '.git'
 
 - **poetry.lock and pyproject.toml:** Contains information about the python package and dependencies.
 
+Ensure the python environment is correctly loaded using these commands in the vscode terminal:
+```
+# see if env is correctly set up
+python --version  # should show 3.11
+poetry show  # should show dependencies
+python workshop_datascience_template/main.py  # executes an example script
+```
+
 ## Get It Running Locally
 
 Open the command palette and run "Open in container..." and wait for the build to complete successfully. 
@@ -146,5 +154,18 @@ cruft create -f https://github.com/prescriptiveanalytics/python-package-template
 # CMD+SHIFT+P or CTRL+SHIFT+P to open the command palette and search for it
 
 # lock dependencies
+git checkout TODO
 poetry lock
+
+# see if env is correctly set up
+python --version  # should show 3.11
+poetry show  # should show dependencies
+python workshop_datascience_template/main.py  # executes an example script
+
+# Use command palette to select correct interpreter (Python: Select interpreter)
+# Restart your bash
+git checkout TODO
+poetry add pandas scikit-learn seaborn matplotlib
+python workshop_datascience_template/penguin_analysis.py
+# cool - now we get prediction on the sex of the penguin (based on features such as mass and bill length/flipper length/...)
 ```
