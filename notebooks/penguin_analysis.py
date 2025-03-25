@@ -1,3 +1,4 @@
+# %%
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -12,7 +13,6 @@ from sklearn.metrics import (
     accuracy_score,
     confusion_matrix,
 )
-
 
 # Load the penguins dataset
 penguins = sns.load_dataset("penguins")
@@ -60,6 +60,10 @@ print(classification_report(y_test, y_pred))
 print(f"Accuracy: {accuracy_score(y_test, y_pred):.2f}")
 
 # Optional visualization: true vs predicted
+results_df = pd.DataFrame({"Actual": y_test, "Predicted": y_pred})
+
+# %%
+# Confusion Matrix
 cm = confusion_matrix(y_test, y_pred, labels=clf_pipeline.classes_)
 cm_df = pd.DataFrame(cm, index=clf_pipeline.classes_, columns=clf_pipeline.classes_)
 
@@ -70,3 +74,5 @@ plt.ylabel("Actual")
 plt.title("Confusion Matrix: Sex Classification")
 plt.tight_layout()
 plt.show()
+
+# %%

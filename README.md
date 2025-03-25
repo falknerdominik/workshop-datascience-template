@@ -154,7 +154,7 @@ cruft create -f https://github.com/prescriptiveanalytics/python-package-template
 # CMD+SHIFT+P or CTRL+SHIFT+P to open the command palette and search for it
 
 # lock dependencies
-git checkout TODO
+git checkout template-structure
 poetry lock
 
 # see if env is correctly set up
@@ -164,8 +164,13 @@ python workshop_datascience_template/main.py  # executes an example script
 
 # Use command palette to select correct interpreter (Python: Select interpreter)
 # Restart your bash
-git checkout TODO
+git checkout penguins-script
 poetry add pandas scikit-learn seaborn matplotlib
 python workshop_datascience_template/penguin_analysis.py
 # cool - now we get prediction on the sex of the penguin (based on features such as mass and bill length/flipper length/...)
+
+# ...but the plot is missing - notebooks can help!
+poetry add ipykernel
+# enable the vscode extensions in `.devcontainer/devcontainer.json` and rebuild
+# open the notebook and execute cells with SHIFT+ENTER
 ```
