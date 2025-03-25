@@ -133,6 +133,9 @@ Open the command palette and run "Open in container..." and wait for the build t
 
 ## Accessing data
 
+You can access data either mounting a directory from local host in you `docker-compose.yml` or use our own S3 service. You can find an example for configuring your own s3 service in:
+`.devcontainer/.env-private.example` and in `notebooks/load_from_private_s3.py`
+
 ## Get It Running Remotely
 
 ## Services which are useful
@@ -155,32 +158,38 @@ cruft create -f https://github.com/prescriptiveanalytics/python-package-template
 # At this point the repository is finished and you can execute "Open in container...".
 # CMD+SHIFT+P or CTRL+SHIFT+P to open the command palette and search for it
 
+## Validate setup
 # lock dependencies
 git checkout template-structure
 poetry lock
+poetry install
 
 # see if env is correctly set up
 python --version  # should show 3.11
 poetry show  # should show dependencies
 python workshop_datascience_template/main.py  # executes an example script
-
 # Use command palette to select correct interpreter (Python: Select interpreter)
+
+## Penguins with script
 # Restart your bash
-poetry install
 git checkout penguins-script
+poetry install
 poetry add pandas scikit-learn seaborn matplotlib
 python workshop_datascience_template/penguin_analysis.py
 # cool - now we get prediction on the sex of the penguin (based on features such as mass and bill length/flipper length/...)
 
+## Penguins with notebooks
 # ...but the plot is missing - notebooks can help!
-poetry install
 git checkout penguins-notebook
+poetry install
 poetry add ipykernel
 # enable the vscode extensions in `.devcontainer/devcontainer.json` and rebuild
 # open the notebook and execute cells with SHIFT+ENTER
 
+## Accessing data
 git checkout risc-s3
+poetry install
 poetry add cloudpathlib
-# follow the instruction in the python notebook: `notebooks/load_from_risc_s3.py`
+# follow the instruction in the python notebook: `notebooks/load_from_private_s3.py`
 # You can remotely load data from the public NAS!
 ```

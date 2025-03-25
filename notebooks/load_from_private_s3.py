@@ -4,7 +4,7 @@
 # ENSURE the .env-private file is in .gitignore!
 # ENSURE the .env-private file is in docker-compose.yml in the `env_file` key!
 
-# AWS_ENDPOINT_URL="https://publics3storage.risc-software.at/"
+# AWS_ENDPOINT_URL="https://<YOUR_OWN_S3_URL>"
 # AWS_ACCESS_KEY_ID="<KEY_OBTAINED_FROM_GUI>"
 # AWS_SECRET_ACCESS_KEY="<SECRET_OBTAINED_FROM_GUI>"
 
