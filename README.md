@@ -138,9 +138,33 @@ You can access data either mounting a directory from local host in you `docker-c
 
 ## Get It Running Remotely
 
-## Services which are useful
+- Complete the setup in the `Remote Development` Confluence page. From here on out, we assume you have setup all your SSH correctly.
+- Ask for access to the relevant server (refer to `Remote Development` page and Jira)
 
-### publicS3storage.risc-software.at
+Then after this you can start working remotely (from an existing repository!):
+
+1. Open the Command Palette (CTRL+SHIFT+P or CMD+SHIFT+P)
+2. Select Option "Remote-SSH: Connect to Host..."
+3. Select or enter your remote server you want to use
+4. Sign in (if ssh has been setup this step is automatically completed for you)
+5. Clone our repository in the desired path and open it using vscode
+6. After the project is open you can select the option "Dev Containers: Rebuilt Container..." from the command palette
+
+## Tips & Tricks
+
+### My syntax highlighting does not work (the correct interpreter is set).
+
+Reloading the window is often the workaround for this
+
+### I want to run a long running job
+
+Warn the people on the relevant devcontainer channel. Before you run it you should know:
+
+- How much RAM do I need
+- How much of the CPU / GPU do I need
+- How long will it approx. take
+
+Then you can start
 
 
 ---
