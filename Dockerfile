@@ -70,3 +70,12 @@ RUN if [ "$INSTALL_DEV_TOOLS" ]; then \
     iputils-ping \
     && apt-get clean && rm -rf /var/lib/apt/lists/*; \
     fi
+
+
+###############################################################################
+# defines a job with everything from the dev image and executes the job
+FROM dev AS long_running
+
+COPY . .
+
+CMD [ "python", "notebooks/long_running_job.py" ]

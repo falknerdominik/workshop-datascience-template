@@ -5,6 +5,7 @@
 !/pyproject.toml
 !/poetry.lock
 !/workshop_datascience_template/**/*.py
+!/notebooks
 
 # but but
 # Ignore the unignored

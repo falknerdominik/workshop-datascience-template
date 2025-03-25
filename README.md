@@ -156,7 +156,7 @@ Then after this you can start working remotely (from an existing repository!):
 
 Reloading the window is often the workaround for this
 
-### I want to run a long running job
+### I want to run a long running job (which does finish!)
 
 Warn the people on the relevant devcontainer channel. Before you run it you should know:
 
@@ -164,8 +164,37 @@ Warn the people on the relevant devcontainer channel. Before you run it you shou
 - How much of the CPU / GPU do I need
 - How long will it approx. take
 
-Then you can start
+Then you can start the job **as a separate container**. Your own devcontainer can (and will) be terminated. You can find an example dockerfile (executing a notebook) in `Dockerfile`.
+You then need to build the image (on the server, open a separate ssh session) and run it. The following commands show how this is done - ensure those are executed directly on the server and not in a devcontainer. In the future we want to make this easier.
 
+```bash
+# -t names the images (optional with tag)
+docker build --target long_running -t long_running .
+docker image ls # check to see your image here
+# output:
+# long_running    latest   f83d0824f0aa   10 seconds ago   2.29GB
+# and start it using:
+# ENSURE: You mount any data and volumes here in the command using the `-v` flag!
+# ENSURE: If you need additional files from the repository readd them to the .dockerignore (otherwise it will not be copied in the Dockerfile)!
+docker run -d long_running
+
+# for debugging you can look what has been written in the container using `docker run --rm -it long_running bash`
+# docker ps (get container id) and docker logs <CONTAINER_ID> to show the output
+
+# You can check the ressource utilization with `htop` and `top` command
+```
+
+## Adding system dependencies
+
+If you need dependencies (such a c libraries in the container) you can add them to the `build` stage in the Dockerfile.
+
+## Tools for development
+
+Can be added in the dockerfile at the `dev` stage.
+
+## Handling credentials
+
+Credentials should **never** be commited! See the example at the tag `risc-s3` for how to do this.
 
 ---
 
@@ -188,6 +217,8 @@ git checkout template-structure
 poetry lock
 poetry install
 
+# Formatting, linting, import sorting, License checking
+
 # see if env is correctly set up
 python --version  # should show 3.11
 poetry show  # should show dependencies
@@ -200,6 +231,7 @@ git checkout penguins-script
 poetry install
 poetry add pandas scikit-learn seaborn matplotlib
 python workshop_datascience_template/penguin_analysis.py
+# You can also debug!
 # cool - now we get prediction on the sex of the penguin (based on features such as mass and bill length/flipper length/...)
 
 ## Penguins with notebooks
