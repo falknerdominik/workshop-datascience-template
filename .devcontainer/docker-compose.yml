@@ -3,7 +3,9 @@ services:
     container_name: ${DEVCONTAINER_NAME}
     
     # load environment variables from a dotenv file
-    env_file: ".env"
+    env_file: 
+      - ".env"
+      - ".env-private"
     
     # necessary to keep devcontainer alive
     entrypoint: "sleep infinity"

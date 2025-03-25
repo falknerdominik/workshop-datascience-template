@@ -89,3 +89,6 @@ coverage.xml
 cover/
 *-junit.xml
 liccheck_reporting.txt
+
+# exclude your private env
+.devcontainer/.env-private

@@ -34,6 +34,7 @@ scikit-learn = "^1.6.1"
 seaborn = "^0.13.2"
 matplotlib = "^3.10.1"
 ipykernel = "^6.29.5"
+cloudpathlib = "^0.21.0"
 
 [tool.poetry.group.dev.dependencies]
 # https://python-poetry.org/docs/master/managing-dependencies/

@@ -131,6 +131,8 @@ python workshop_datascience_template/main.py  # executes an example script
 
 Open the command palette and run "Open in container..." and wait for the build to complete successfully. 
 
+## Accessing data
+
 ## Get It Running Remotely
 
 ## Services which are useful
@@ -164,13 +166,21 @@ python workshop_datascience_template/main.py  # executes an example script
 
 # Use command palette to select correct interpreter (Python: Select interpreter)
 # Restart your bash
+poetry install
 git checkout penguins-script
 poetry add pandas scikit-learn seaborn matplotlib
 python workshop_datascience_template/penguin_analysis.py
 # cool - now we get prediction on the sex of the penguin (based on features such as mass and bill length/flipper length/...)
 
 # ...but the plot is missing - notebooks can help!
+poetry install
+git checkout penguins-notebook
 poetry add ipykernel
 # enable the vscode extensions in `.devcontainer/devcontainer.json` and rebuild
 # open the notebook and execute cells with SHIFT+ENTER
+
+git checkout risc-s3
+poetry add cloudpathlib
+# follow the instruction in the python notebook: `notebooks/load_from_risc_s3.py`
+# You can remotely load data from the public NAS!
 ```
