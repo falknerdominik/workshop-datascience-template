@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# but
+!/pyproject.toml
+!/poetry.lock
+!/workshop_datascience_template/**/*.py
+
+# but but
+# Ignore the unignored
+# /workshop_datascience_template/super/specific.py

@@ -1,0 +1,22 @@
+{
+  "template": "https://github.com/prescriptiveanalytics/python-package-template",
+  "commit": "df226f0c7d2a6b15c539c021cf3762052bc81825",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "package_name": "workshop-datascience-template",
+      "package_description": "A sample project which shows how to work with the datascience template.",
+      "is_subproject": false,
+      "package_url": "https://github.com/falknerdominik/workshop-datascience-template",
+      "author_name": "Dominik Falkner",
+      "author_email": "dominik.falkner@risc-software.at",
+      "python_version": "3.11",
+      "docstring_style": "Google",
+      "__package_name_kebab_case": "workshop-datascience-template",
+      "__package_name_snake_case": "workshop_datascience_template",
+      "_template": "https://github.com/prescriptiveanalytics/python-package-template",
+      "_commit": "df226f0c7d2a6b15c539c021cf3762052bc81825"
+    }
+  },
+  "directory": null
+}
