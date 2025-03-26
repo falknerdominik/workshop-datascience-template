@@ -245,10 +245,9 @@ poetry add ipykernel
 ## Accessing data
 git checkout risc-s3
 poetry install
-poetry add cloudpathlib
+poetry add cloudpathlib cloudpathlib[s3] pyarrow
 # follow the instruction in the python notebook: `notebooks/load_from_private_s3.py`
 # You can remotely load data from the public NAS!
-
 
 # Example for a long running job - see README Tips & Tricks
 git checkout long_running

@@ -10,5 +10,7 @@
 
 from cloudpathlib import CloudPath
 import pandas as pd
-file = CloudPath("s3://<BUCKET_NAME>") / "<FOLDER>" / "<FILE>.parquet"
+# file = CloudPath("s3://<BUCKET_NAME>") / "<PATH>" / "<TO_FOLDER>.parquet"
+file = CloudPath("s3://ffg-powercast") / "linzag" / "definitions.parquet"
 data = pd.read_parquet(file)
+# %%
